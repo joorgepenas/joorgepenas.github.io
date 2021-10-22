@@ -237,7 +237,7 @@ namespace apiBarberShop.Controllers
         {
             string StoredProc = "exec app.VALIDAR_DISPONIBILIDAD " +
                     "@DNI = '" + data.DNI + "'," +
-                    "@FECHA_ATENCION = " + Convert.ToDateTime(data.FECHA) + "";
+                    "@FECHA_ATENCION = '" + Convert.ToDateTime(data.FECHA) + "'";
 
             _responseDTO = new ResponseDTO();
             try
