@@ -191,7 +191,7 @@ namespace apiBarberShop.Controllers
             string StoredProc = "exec app.RESERVA_CITA " +
                     "@DNI = '" + citas.DNI + "'," +
                     "@DNI_ESTI = '" + citas.DNI2 + "'," +
-                    "@FECHA_ATEN= '" + citas.FECHA_ATENCION + "'," +
+                    "@FECHA_ATEN= '" + Convert.ToDateTime(citas.FECHA_ATENCION) + "'," +
                     "@HORA= '" + citas.HORA_RESERVACION + "'," +
                     "@ID_CATEGORIA_PAGO= '" + citas.ID_PAGO + "'," +
                     "@ID_SERVI= " + citas.ID_SERVICO + "";
