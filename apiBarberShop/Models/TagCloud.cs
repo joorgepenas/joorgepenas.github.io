@@ -11,6 +11,7 @@ namespace apiBarberShop.Models
         [Key]
         public int ID { get; set; }
         public string COMENTA { get; set; }
-        public System.Int64 CONTADOR { get; set; }
+        public int CONTADOR { get; set; }
+        public string COLOR { get; set; }
     }
 }

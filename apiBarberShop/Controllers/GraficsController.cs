@@ -47,7 +47,7 @@ namespace apiBarberShop.Controllers
         }
 
         [HttpPost("tagcloud")]
-        public async Task<ActionResult<IEnumerable<GraficoBarras>>> GetTagCloud(Document document)
+        public async Task<ActionResult<IEnumerable<TagCloud>>> GetTagCloud(Document document)
         {
             string StoredProc = "exec app.TAG_CLOUD " +
                     "@DNI ='" + document.DNI + "'";
@@ -55,7 +55,7 @@ namespace apiBarberShop.Controllers
             _responseDTO = new ResponseDTO();
             try
             {
-                var usuarios = await _context.GraficoBarras.FromSqlRaw(StoredProc).ToListAsync();
+                var usuarios = await _context.TagCloud.FromSqlRaw(StoredProc).ToListAsync();
                 var response = _responseDTO.Success(_responseDTO, usuarios);
                 return Ok(response);
             }
