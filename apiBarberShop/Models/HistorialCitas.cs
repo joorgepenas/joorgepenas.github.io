@@ -10,6 +10,7 @@ namespace apiBarberShop.Models
     {
         [Key]
         public int ID_CITA { get; set; }
+        public string DNI_ESTILISTA { get; set; }
         public string HORA_RESERVACION { get; set; }
         public DateTime FECHA_ATENCION { get; set; }
         public string NOMBRE_ESTILISTA { get; set; }
