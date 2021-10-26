@@ -126,6 +126,28 @@ namespace apiBarberShop.Controllers
             }
         }
 
+        [HttpPut("modify")]
+        public async Task<ActionResult<IEnumerable<CancelarCita>>> PutModifyCita(ModifyCita cita)
+        {
+            string StoredProc = "exec app.MODIFICAR_CITA " +
+                    "@ID_CITA =" + cita.ID + "," +
+                    "@FECHA_ATENCION = '" + Convert.ToDateTime(cita.FECHA) + "'," +
+                    "@HORA = '" + cita.HORA + "'";
+
+            _responseDTO = new ResponseDTO();
+            try
+            {
+                var usuarios = await _context.CancelarCita.FromSqlRaw(StoredProc).ToListAsync();
+                var response = _responseDTO.Success(_responseDTO, usuarios);
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+                var response = _responseDTO.Failed(_responseDTO, e);
+                return BadRequest(response);
+            }
+        }
+
         [HttpGet("feedback/{dni}")]
         public async Task<ActionResult<IEnumerable<Feedback>>> GetFeedback(string dni)
         {
