@@ -17,4 +17,4 @@ namespace apiBarberShop.Models
         public int SEXO { get; set; }
         public int PROMEDIO { get; set; }
     }
-}
+} 
