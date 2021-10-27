@@ -14,6 +14,7 @@ namespace apiBarberShop.Context
 
         }
         public DbSet<MostrarUsu> MostrarUsu { get; set; }
+        public DbSet<DataAnalisisEstilista> DataAnalisisEstilista { get; set; }
         public DbSet<CancelarCita> CancelarCita { get; set; }
         public DbSet<HistorialCitas> HistorialCitas { get; set; }
         public DbSet<HoraValidacion> HoraValidacion { get; set; }

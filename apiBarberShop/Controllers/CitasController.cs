@@ -46,6 +46,26 @@ namespace apiBarberShop.Controllers
             }
         }
 
+        [HttpGet("analisis/estilista/{dni}")]
+        public async Task<ActionResult<IEnumerable<DataAnalisisEstilista>>> GetEstilistasDNI(string dni)
+        {
+            string StoredProc = "exec app.DATA_ANAL_STYLUS " +
+                    "@DNI ='" + dni + "'";
+
+            _responseDTO = new ResponseDTO();
+            try
+            {
+                var usuarios = await _context.DataAnalisisEstilista.FromSqlRaw(StoredProc).ToListAsync();
+                var response = _responseDTO.Success(_responseDTO, usuarios);
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+                var response = _responseDTO.Failed(_responseDTO, e);
+                return BadRequest(response);
+            }
+        }
+
         [HttpGet("usuario/{dni}")]
         public async Task<ActionResult<IEnumerable<HistorialCitas>>> GetCitasDNI(string dni)
         {
