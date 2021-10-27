@@ -13,5 +13,6 @@ namespace apiBarberShop.Models
         public int CATE { get; set; }
         public string NOMBRE { get; set; }
         public int SEXO { get; set; }
+        public int PROMEDIO { get; set; }
     }
 }
