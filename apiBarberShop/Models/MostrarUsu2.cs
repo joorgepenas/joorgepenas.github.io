@@ -19,5 +19,6 @@ namespace apiBarberShop.Models
         public int ID_ROL { get; set; }
         public string ROL { get; set; }
         public int? ID_CATE { get; set; }
+        public string? CATE { get; set; }
     }
 }
